@@ -1,0 +1,37 @@
+.navigation-menu {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow-y: auto; /* Enable vertical scrolling */
+  max-height: 100vh; /* Limit the maximum height of the menu to the viewport height */
+}
+
+.navigation-menu li {
+  margin: 0px 20px;
+}
+
+.navigation-menu li a {
+  text-decoration: none;
+  color: white;
+}
+
+.active {
+  color: goldenrod !important;
+  font-weight: bold !important;
+}
+
+/* Mobile view */
+.mobile-navigation {
+  list-style: none;
+}
+
+.mobile-navigation li {
+  margin-top: 20px;
+}
+
+.mobile-navigation li a {
+  text-decoration: none;
+  font-size: 1.4rem;
+  color: black;
+}

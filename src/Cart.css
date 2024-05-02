@@ -1,0 +1,64 @@
+/* Style for the main container */
+.cart-container {
+  width: 80%;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Style for the cart menu */
+.cart-menu {
+  background-color: #f9f9f9;
+  border-radius: 5px;
+  padding: 20px;
+}
+
+/* Style for the cart table */
+.cart-table {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Style for the table rows */
+.cart-table-row {
+  display: flex;
+  border-bottom: 1px solid #ddd;
+}
+
+/* Style for the header row */
+.cart-table-row.header {
+  font-weight: bold;
+}
+
+/* Style for the table cells */
+.cart-table-cell {
+  flex: 1;
+  padding: 10px;
+}
+
+/* Style for the quantity buttons */
+.quantity-button {
+  font-size: 0.8rem; /* Smaller font size */
+  width: 20px; /* Adjust button width */
+  height: 20px; /* Adjust button height */
+  margin: 0 5px; /* Add margin between buttons */
+  border: none;
+  background-color: #f9f9f9;
+  cursor: pointer;
+}
+
+/* Style for the remove button */
+.remove-button {
+  background-color: #dc3545;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+/* Style for the total price */
+.total-price {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-top: 20px;
+}
