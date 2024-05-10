@@ -7,13 +7,15 @@ import Veg from './Veg';
 import Tiffins from './Tiffins';
 import About from './About';
 import Homepage from './Homepage';
+import Login from './Login';
 import Cart from './Cart';
+import Signup from './Signup';
 
 function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/login" element={<Log />} />
+        <Route path="/login" element={<Login />} />
         <Route path="/home" element={<Home />} />
         <Route path="/veg" element={<Veg />} />
         <Route path="/non-veg" element={<Home />} />
@@ -21,7 +23,8 @@ function App() {
         <Route path="/about-us" element={<About />} />
         <Route path="/add-to-cart" element={<Cart />} />
         <Route path="/home1" element={<Homepage />} />
-        <Route path="/" element={<Log />} />
+        <Route path="/" element={<Login />} />
+        <Route path="/signup" element={<Signup />} />
       </Routes>
     </Router>
   );

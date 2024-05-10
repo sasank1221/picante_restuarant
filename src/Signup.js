@@ -1,28 +1,52 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom'; // Import only useNavigate hook
+import axios from 'axios';
+import { useNavigate, Link } from 'react-router-dom';
+import './Signup.css';
 
 function Signup() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [rePassword, setRePassword] = useState('');
   const [error, setError] = useState('');
-  const navigate = useNavigate(); // Initialize useNavigate
+  const navigate = useNavigate();
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    
+
+    // Validation checks for empty fields
+    if (!username.trim() || !password.trim() || !rePassword.trim()) {
+      setError('All fields are mandatory');
+      return;
+    }
+
     if (password !== rePassword) {
       setError('Passwords do not match');
       return;
     }
 
-
-    // If passwords match, navigate to login page
-    navigate('/Login');
+    try {
+      // Make a POST request to store user information in MongoDB
+      await axios.post('https://picante-backendfile.onrender.com/signup', { username, password });
+      // Navigate to the login page after successful signup
+      navigate('/login');
+    } catch (error) {
+      setError('Error signing up');
+      console.error('Error signing up:', error);
+    }
   };
 
   return (
     <div className="Signup">
+      <div className="navbar">
+        <ul>
+          <li>
+            <Link to="/login">Login</Link>
+          </li>
+          <li>
+            <Link to="/signup">Signup</Link>
+          </li>
+        </ul>
+      </div>
       <div className="Signup-container">
         <h2>Signup</h2>
         <form onSubmit={handleSubmit}>
@@ -34,6 +58,7 @@ function Signup() {
               placeholder="Enter your username"
               value={username}
               onChange={(e) => setUsername(e.target.value)}
+              style={{ width: '270px' }}
             />
           </div>
           <div className="form-group">
@@ -44,6 +69,7 @@ function Signup() {
               placeholder="Enter your password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
+              style={{ width: '270px' }}
             />
           </div>
           <div className="form-group">
@@ -54,12 +80,12 @@ function Signup() {
               placeholder="Re-enter your password"
               value={rePassword}
               onChange={(e) => setRePassword(e.target.value)}
+              style={{ width: '270px' }}
             />
           </div>
           {error && <p style={{ color: 'red' }}>{error}</p>}
           <button type="submit">Sign Up</button>
         </form>
-        <p>Already have an account? <a href="/login">Login</a></p>
       </div>
     </div>
   );

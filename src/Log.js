@@ -1,28 +1,15 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import './Log.css';
 import logo from './images/logo.jpg';
-import Signup from './Signup';
 import Login from './Login';
-import Homepage from './Homepage'; // Corrected component import
+import Signup from './Signup';
 
-function Log({ initialRender, onInitialRender }) {
-  const [loggedIn, setLoggedIn] = useState(false);
-  const [showLogin, setShowLogin] = useState(false);
-
-  const handleLogout = () => {
-    setLoggedIn(false);
-  };
+function Log() {
+  const [showLogin, setShowLogin] = useState(true); // Initially show the Login component
 
   const toggleForm = () => {
     setShowLogin((prevShowLogin) => !prevShowLogin);
   };
-
-  useEffect(() => {
-    if (initialRender) {
-      // Handle initial render actions here, such as fetching data
-      onInitialRender();
-    }
-  }, [initialRender, onInitialRender]);
 
   return (
     <div className="Log">
@@ -31,22 +18,16 @@ function Log({ initialRender, onInitialRender }) {
       <div className="navbar">
         <ul>
           <li>
-            <button onClick={() => setShowLogin(true)}>Login</button>
+            <button onClick={() => setShowLogin(true)}>Login</button> {/* Set showLogin to true */}
           </li>
           <li>
-            <button onClick={() => setShowLogin(false)}>Signup</button>
+            <button onClick={() => setShowLogin(true)}>Signup</button> {/* Set showLogin to false */}
           </li>
         </ul>
       </div>
 
-      {/* Conditionally render the signup, login form, or Home component */}
-      {loggedIn ? (
-        <Homepage onLogout={handleLogout} />
-      ) : showLogin ? (
-        <Login />
-      ) : (
-        <Signup />
-      )}
+      {/* Conditionally render either Login or Signup based on showLogin state */}
+      {showLogin ? <Login /> : <Signup />}
     </div>
   );
 }

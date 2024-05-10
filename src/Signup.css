@@ -1,0 +1,57 @@
+/* Signup.css */
+.Signup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('./images/logo.jpg'); /* Corrected path to the background image */
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.Signup-container {
+    width: 300px;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background: rgba(255, 255, 255, 0.8);
+}
+
+  
+
+/* Navbar Styles */
+.navbar {
+    position: fixed;
+    top: 20%;
+    left: 70%;
+    transform: translate(-35%, -30%);
+    width: 300px;
+    background-color: #f5f7f9;
+    padding: 10px 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    transition: left 0.3s ease, width 0.3s ease;
+}
+
+.navbar ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex; 
+    justify-content: space-between; 
+}
+
+.navbar ul li a {
+    text-decoration: none;
+    color: #333; /* Changed color to a darker gray */
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.navbar ul li a:hover {
+    color: #666; /* Changed hover color to a lighter gray */
+}
