@@ -23,8 +23,12 @@ function App() {
         <Route path="/about-us" element={<About />} />
         <Route path="/add-to-cart" element={<Cart />} />
         <Route path="/home1" element={<Homepage />} />
+<<<<<<< HEAD
         <Route path="/" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
+=======
+          <Route path="/" element={<Log />} />
+>>>>>>> d3b7a8a894e7b80e10ba277fe710bc2fc3f09400
       </Routes>
     </Router>
   );
